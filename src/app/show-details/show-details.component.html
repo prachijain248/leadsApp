@@ -1,0 +1,40 @@
+<app-side-nav></app-side-nav>
+<div class="searchContainer">
+<label class="searchLabel"><i class="glyphicon glyphicon-search"></i>Search</label>
+<input type="text" class="searchText" [(ngModel)]="filterStudents"> 
+</div>
+<div class="tableContainer" *ngIf="displayTable">
+ 
+  <table class="table table-bordered" title="Leads" >
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone </th>
+        <th>Email</th>
+        <th>Lead Generator</th>
+        <th>Source</th>
+        <th>Course</th>
+        <th>Program</th>
+        <th>Remark</th>
+        <th>Followup Date</th>
+        <th>Followu Initiator</th>
+        <th>Followup Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let n of leads | searchStudent: filterStudents">
+       <td>{{n.name}}</td>
+        <td>{{n.phone}}</td>
+        <td>{{n.email}}</td>
+        <td>{{n.leadGenerator}}</td>
+        <td>{{n.sourceDropdown}}</td>
+        <td>{{n.courseDropdown}}</td>
+        <td>{{n.programDropdown}}</td>
+        <td>{{n.remarksText}}</td>
+        <td>{{n.followupDate}}</td>
+        <td>{{n.followupInitiator}}</td>
+        <td>{{n.followupremarksText}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>

@@ -1,0 +1,9 @@
+<div class="dropdown_course_container">
+  <label>Select The course to create a new batch</label>
+<div class="dropdown">
+<select  class="btn btn-success dropdown-toggle" placeholder="Select Course" data-toggle="dropdown" #courseDropdownInfo [(ngModel)]="courseDropdown"> 
+<option *ngFor="let n of courses" value="n.courseName">{{n.courseName}}</option>
+  </select>
+  </div><br>
+  <button class="btn btn-success" (click)="createNewBatch();">Create New Batch</button>
+</div>

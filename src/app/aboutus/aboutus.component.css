@@ -1,0 +1,16 @@
+#aboutus_container{
+    text-align: center;
+    margin: auto;
+    text-justify: auto;
+    font-style: oblique;
+    font-size: 18px;
+    width: auto;
+    height: auto;
+}
+img{
+    width: 150px;
+    margin-right: auto;
+    margin-left: auto;
+    
+    height: 150px;
+}

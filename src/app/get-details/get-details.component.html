@@ -1,0 +1,60 @@
+<app-side-nav></app-side-nav>
+<div class="container">
+	<div class="row">
+    <div class="col-md-4">
+		<div class="form_main" >
+                <h4 class="heading"><strong>Enter Your Information Here </strong></h4>
+                <div class="form">
+                <div id="enquiry_details">
+                    <input type="text" required placeholder="Please Enter your Name" [(ngModel)]="username" #name class="txt">
+                    <input type="text" required placeholder="Please Enter your mobile No" [(ngModel)]="phno" #phoneno  class="txt">
+                    <input type="text" required placeholder="Please Enter your Email" [(ngModel)]="email" #emailid class="txt">
+                    <input type="text" required placeholder="Lead Generator" [(ngModel)]="leadGenerator" #leadGen class="txt">
+
+                    <div class="dropdown_source_container">
+                            <label>Select Source</label>
+                                 <div class="dropdown">
+                                <select class="btn btn-success dropdown-toggle" placeholder="Select Source" data-toggle="dropdown" #SourceDropdownInfo [(ngModel)]="sourceDropdown"> 
+                                <option value="Sulekha">Sulekha</option>
+                                <option value="UrbanPro">UrbanPro</option>
+                                <option value="JustDial">JustDial</option>
+                                <option value="Website">Website</option>
+                                <option value="Friends">Friends</option>
+                                <option value="Other">Other</option>
+                            </select>
+                              </div>
+                        </div><br>
+                    <div class="dropdown_course_container">
+                        <label>Select Course</label>
+						<div class="dropdown">
+						<select  class="btn btn-success dropdown-toggle" placeholder="Select Course" data-toggle="dropdown" #courseDropdownInfo [(ngModel)]="courseDropdown"> 
+						    <option *ngFor="let n of courses" value="n.courseName">{{n.courseName}}</option>
+                        </select>
+                        </div>
+                    </div><br>
+                    <div class="dropdown_program_container">
+                            <label>Select Program</label>
+						    <div class="dropdown">
+						    <select class="btn btn-success dropdown-toggle" placeholder="Select Program" data-toggle="dropdown" #programDropdownInfo [(ngModel)]="programDropdown">
+						    <option *ngFor="let f of programs" value="f.programName">{{f.programName}}</option>
+                            </select>
+						  </div>
+                    </div>
+                
+                     <textarea placeholder="Remarks" name="mess" type="text" #remarksTextInfo [(ngModel)]="remarksText" class="txt_3"></textarea>
+                     <br>
+                     <h4 class="heading"><strong>Followup Information </strong></h4>
+                     <label>Followup Date:</label>
+                     <input placeholder="Followup date" [(ngModel)]="followupDate" #followupDateInfo class="text2"><br>
+                     <label>Followup Initiator</label>
+                     <input type="text" required placeholder="Followup initiator" [(ngModel)]="followupInitiator" #followupInitiatorInfo class="txt">
+                     <label>Followup Remarks:</label>
+                     <textarea placeholder=" Followup Remarks" type="text" #followupremarksTextInfo [(ngModel)]="followupremarksText" class="txt_3"></textarea>
+
+                     <button type="submit" class="txt2" (click)="getDetailsMethod()">Submit</button>
+                </div>
+            </div>
+            </div>
+            </div>
+	</div>
+</div>

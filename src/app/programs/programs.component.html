@@ -1,0 +1,41 @@
+
+<button class="btn btn-info" (click)="addProgram()">Add Programm</button>
+
+<hr>
+<div *ngIf="programListTable">
+<h4 class="heading"><strong>List of Programs </strong></h4>
+<table class="table table-bordered" title="Leads" >
+    <tbody>
+      <tr *ngFor="let n of programs">
+    <td>{{n.programName}}</td>
+    <td>  <a class="btn btn-default col-sm-2" (click)="editProgram(n)"><i class="glyphicon glyphicon-pencil"></i></a>
+    </td>
+    <td>  <a class="btn btn-default col-sm-2" (click)="deleteProgram(n)"><i class="glyphicon glyphicon-trash"></i></a>
+    </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+  <div *ngIf="addProgramForm">
+      <input type="text" required placeholder="Enter the Program Name" [(ngModel)]="programName" #programNameInfo class="txt">
+      <input type="text" required placeholder="Enter the Program Duration" [(ngModel)]="programDuration" #programDurationInfo class="txt">
+      <input type="text" required placeholder="Enter the Program Fees" [(ngModel)]="programFees" #programFeesInfo class="txt">
+      <input type="text" required placeholder="Enter the Program Description" [(ngModel)]="programDescription" #programDescriptionInfo class="txt">
+      <button type="submit" class="btn btn-success" (click)="addProgramDetails()">Add this Program</button> 
+      <button type="submit" class="btn btn-success" (click)="goBack()">Go back</button>
+  </div>
+
+  <div *ngIf="editProgramForm">
+    <label>Course Name</label>
+<input type="text"  [(ngModel)]="currentProgram.programName" #programNameInfo class="txt">
+<label>Course Duration</label>
+<input type="text"  [(ngModel)]="currentProgram.programDuration" #programDurationInfo class="txt">
+<label>Course Fees</label>
+<input type="text"  [(ngModel)]="currentProgram.programFees" #programFeesInfo class="txt">
+<label>Course Description</label>
+<input type="text"  [(ngModel)]="currentProgram.programDescription" #programDescriptionInfo class="txt">
+<button type="submit" class="btn btn-success" (click)="updateProgramDetails(currentProgram._id.$oid)">Update</button>
+</div>
+
