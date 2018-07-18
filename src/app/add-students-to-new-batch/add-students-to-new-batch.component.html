@@ -1,0 +1,35 @@
+
+<div class="tableContainer" *ngIf="displayTable">
+    <label class="searchLabel"><i class="glyphicon glyphicon-search"></i>Search</label>
+
+    <input type="text" class="searchText" [(ngModel)]="filterStudents"> 
+
+  <table class="table table-bordered" title="Leads" >
+    <thead>
+      <tr>
+        <th colspan="1"></th>
+        <th>Name</th>
+        <th>Phone </th>
+        <th>Email</th>
+        <th>Course</th>
+        <th>Program</th>
+        <th>Remark</th>
+ 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let n of leads | searchStudent: filterStudents">
+     
+      <td>
+        <a class="col-sm-2" (click)="addStudentToDb(n)"><i class="glyphicon glyphicon-plus"></i></a>
+     </td>   
+      <td>{{n.name}}</td>
+        <td>{{n.phone}}</td>
+        <td>{{n.email}}</td>
+        <td>{{n.courseDropdown}}</td>
+        <td>{{n.programDropdown}}</td>
+        <td>{{n.remarksText}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>

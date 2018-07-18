@@ -1,0 +1,20 @@
+ timepicker{
+     max-width: 20%;
+ }
+.btn{
+    margin: 3px;
+}
+.addBatch_Container{
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    float: left;
+    max-width: 40%;
+}
+.add_students_container{
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    float: right;
+    max-width: 60%;
+}

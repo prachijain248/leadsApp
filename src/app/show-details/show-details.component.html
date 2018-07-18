@@ -8,6 +8,7 @@
   <table class="table table-bordered" title="Leads" >
     <thead>
       <tr>
+        <th colspan="2"></th>
         <th>Name</th>
         <th>Phone </th>
         <th>Email</th>
@@ -23,7 +24,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let n of leads | searchStudent: filterStudents">
-       <td>{{n.name}}</td>
+      <td>
+     <a class="col-sm-2" (click)="editLead(n)"><i class="glyphicon glyphicon-pencil"></i></a>
+      </td>
+      <td>
+        <a class="col-sm-2" (click)="deleteLead(n)"><i class="glyphicon glyphicon-trash"></i></a>
+         </td>   
+      <td>{{n.name}}</td>
         <td>{{n.phone}}</td>
         <td>{{n.email}}</td>
         <td>{{n.leadGenerator}}</td>
@@ -38,3 +45,22 @@
     </tbody>
   </table>
   </div>
+
+  <div *ngIf="editLeadForm">
+    <p>Edit Leads Form</p>
+   <input type="text" class="txt" placeholder="{{currentLead.name}}" [(ngModel)]="currentLead.name"> 
+   <input type="text" class ="txt" placeholder="{{currentLead.phone}}" [(ngModel)]="currentLead.phone"> 
+   <input type="text" class ="txt" placeholder="{{currentLead.email}}" [(ngModel)]="currentLead.email"> 
+   <input type="text" class ="txt" placeholder="{{currentLead.leadGenerator}}" [(ngModel)]="currentLead.leadGenerator"> 
+   <input type="text" class ="txt" placeholder="{{currentLead.sourceDropdown}}" [(ngModel)]="currentLead.sourceDropdown"> 
+   <input type="text" class ="txt" placeholder="{{currentLead.courseDropdown}}" [(ngModel)]="currentLead.courseDropdown"> 
+   <input type="text" class ="txt" placeholder="{{currentLead.programDropdown}}" [(ngModel)]="currentLead.programDropdown"> 
+   <input type="text" class ="txt" placeholder="{{currentLead.remarksText}}" [(ngModel)]="currentLead.remarksText"> 
+   <input type="text" class ="txt" placeholder="{{currentLead.followupDate}}" [(ngModel)]="currentLead.followupDate"> 
+   <input type="text" class ="txt" placeholder="{{currentLead.followupInitiator}}" [(ngModel)]="currentLead.followupInitiator"> 
+   <input type="text" class ="txt" placeholder="{{currentLead.followupremarksText}}" [(ngModel)]="currentLead.followupremarksText">
+   <button type="submit" class="btn btn-success" (click)="updateLeadDetails(currentLead._id.$oid)">Update</button>
+
+   <button></button>
+  </div>
+

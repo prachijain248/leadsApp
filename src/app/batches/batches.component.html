@@ -1,9 +1,67 @@
-<div class="dropdown_course_container">
-  <label>Select The course to create a new batch</label>
-<div class="dropdown">
-<select  class="btn btn-success dropdown-toggle" placeholder="Select Course" data-toggle="dropdown" #courseDropdownInfo [(ngModel)]="courseDropdown"> 
-<option *ngFor="let n of courses" value="n.courseName">{{n.courseName}}</option>
-  </select>
-  </div><br>
-  <button class="btn btn-success" (click)="createNewBatch();">Create New Batch</button>
-</div>
+<section class="addBatch_Container">
+<h2>Enter New Batch Details</h2>
+<div class="form-inline">
+      <div class="form-group">
+       <input type="text" class="form-control" placeholder="Batch ID" [(ngModel)]="newBatchId" ><br>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Batch Name" [(ngModel)]="newBatchName"><br>
+      </div><br/>
+
+      <!--Dropdown Container-->
+      <div class="dropdown_course_container">
+        <h3>Select The course to create a new batch</h3>
+          <div class="dropdown">
+            <div class="form-group">
+            <select  class="btn btn-success dropdown-toggle" [(ngModel)]="courseName"  placeholder="Select Course" data-toggle="dropdown" #courseDropdownInfo [(ngModel)]="courseDropdown"> 
+              <option *ngFor="let n of courses" value="n.courseName" >{{n.courseName}}</option>
+            </select>
+          </div><br>
+        </div>
+        </div>
+       <!--Dropdown Container END-->
+
+        <div class="date_container">
+          <!--Start Date Container-->
+              <h4 class="form-group">Start Date</h4>
+                <div class=" form-group">
+                  <input type="text"
+                        class="form-control"
+                        [minDate]="minStartDate"
+                        [maxDate]="maxStartDate"
+                        #dp="bsDatepicker"
+                        bsDatepicker [(bsValue)]="myStartDateValue">
+                </div>
+          <!--End Date Container-->
+              <h4 class=" form-group">Estimated End Date</h4>
+                <div class=" form-group">
+                  <input type="text"
+                        class="form-control"
+                        [minDate]="minDate"
+                        [maxDate]="maxDate"
+                        #dp="bsDatepicker"
+                        bsDatepicker [(bsValue)]="myEndDateValue">
+                </div>            
+        </div>
+        <!--Duration start-->
+      <div class="timings_container" >
+      <h3 >Batch Timings</h3> <br>
+      <div class="form-group">
+          <label for="myStarttime">From:</label>
+          <timepicker [(ngModel)]="myStarttime"></timepicker><br />
+        </div>
+        <div class="form-group"> 
+          <label for="myEndtime" > To:</label>
+          <timepicker [(ngModel)]="myEndtime"></timepicker><br />
+        </div>
+      </div>
+         <!--Duration end-->
+        <button class="btn btn-success" (click)="createNewBatch();">Create New Batch</button>
+ </div>  
+</section>
+<section class="add_students_container">
+  <add-students [parentData]="newBatchId"></add-students>
+</section><br>
+<section class="show_students_container">
+  <show-students></show-students>
+</section>

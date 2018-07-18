@@ -1,0 +1,26 @@
+
+<table class="table table-bordered" title="Leads" >
+    <thead>
+      <tr>
+        <th>Batch ID</th>
+        <th>Name</th>
+        <th>Phone </th>
+        <th>Email</th>
+        <th>Course</th>
+        <th>Program</th>
+        <th>Remark</th>
+ 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of students">
+       <td>{{x.batchId}}</td>
+      <td>{{x.name}}</td>
+        <td>{{x.phone}}</td>
+        <td>{{x.email}}</td>
+        <td>{{x.course}}</td>
+        <td>{{x.program}}</td>
+        <td>{{x.remarksText}}</td>
+      </tr>
+    </tbody>
+  </table>
