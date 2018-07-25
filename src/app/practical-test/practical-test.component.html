@@ -1,0 +1,120 @@
+
+<div class="container quiz-container">
+   
+    <div *ngIf="divQuestionlist">
+        <div class="row" style="margin-bottom:20px;" >
+            <div class="col-lg-12 text-right">
+                <button class="btn btn-outline-primary" (click)="addquestions()">Add Questions</button>
+            </div>     
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="privew" >
+                    <div class="questionsBox" *ngFor="let qitem of questions let i = index">
+                        <div class="questions"><p>
+                                <button class="btn btn-primary" (click)="editquestions(qitem)">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </button>
+                                <button class="btn btn-primary" (click)="deletequestions(qitem)">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </button>
+                            <!-- {{qitem._id.$oid}}-->
+                            {{i+1}}) {{qitem.mcqquestion}}
+                        
+                        </p>
+                        </div>
+                        <ul class="answerList">
+                            <li>
+                                <label><input type="radio" name="" value="0" id="">{{qitem.option1}} </label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="" value="1" id="">{{qitem.option2}} </label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="" value="2" id="">{{qitem.option3}} </label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="" value="3" id="">{{qitem.option4}} </label>
+                            </li>
+                        </ul>
+                        <div class="questionsRow"><a href="#" class="button" id="nextquestions">Next</a> <a href="#" class="button" id="skipquestions">Skip</a><span>2 of 20</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="divAddquestionList">
+        <div class="row" style="margin-bottom:20px;" >
+            <div class="col-lg-12 text-right">
+                <button class="btn btn-outline-primary" (click)="showquestionlist()"> 1Show Question List </button>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="question" >Question:</label>
+                        <textarea class="form-control"  rows="3" [(ngModel)]="ques"></textarea>
+                       
+                    </div>
+                    <div class="form-group">
+                        <label for="Option1">Option1</label>
+                        <input type="text" class="form-control"  [(ngModel)]="opt1">
+                       
+                    </div>
+                    <div class="form-group">
+                        <label for="Option2">Option2</label>
+                        <input type="text" class="form-control"  [(ngModel)]="opt2">
+                      
+                    </div>
+                    <div class="form-group">
+                        <label for="Option3">Option3</label>
+                        <input type="text" class="form-control" [(ngModel)]="opt3">
+                       
+                    </div>
+                    <div class="form-group">
+                        <label for="Option4">Option4</label>
+                        <input type="text" class="form-control"  [(ngModel)]="opt4">
+                  
+                    </div>
+                    <button class="btn btn-default" (click)="createquestion(createQ)">Submit</button>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <div *ngIf="divEditselectedquestions">
+        <div class="row" style="margin-bottom:20px;" >
+            <div class="col-lg-12 text-right">
+                <button class="btn btn-outline-primary" (click)="showquestionlist()"> 2Show Question List </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label for="questionlist">Question:</label>
+                    <textarea class="form-control" rows="3" [(ngModel)]="currentQuestion.mcqquestion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="Option1">Option1</label>
+                    <input type="text" class="form-control" [(ngModel)]="currentQuestion.option1">
+                </div>
+                <div class="form-group">
+                    <label for="Option2">Option2</label>
+                    <input type="text" class="form-control" [(ngModel)]="currentQuestion.option2">
+                </div>
+                <div class="form-group">
+                    <label for="Option3">Option3</label>
+                    <input type="text" class="form-control" [(ngModel)]="currentQuestion.option3">
+                </div>
+                <div class="form-group">
+                    <label for="Option4">Option4</label>
+                    <input type="text" class="form-control" [(ngModel)]="currentQuestion.option4">
+                </div>
+                <button class="btn btn-default" (click)="updatequestions(currentQuestion._id.$oid)">Update</button>
+            </div>
+        </div>  
+    </div>
+<!-- {{questions|json}} -->
+</div>
