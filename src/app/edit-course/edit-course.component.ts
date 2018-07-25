@@ -15,13 +15,14 @@ export class EditCourseComponent implements OnInit
   public courseName = "";
   public courseDuration = "";
   public courseFees="";
-currentCourse;
+
+  currentCourse;
   courses;
   id:string;
- Apikey="?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo";
+  Apikey="?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo";
 
  
-    constructor(private http:HttpClient, private router: Router) { }
+  constructor(private http:HttpClient, private router: Router) { }
 
   ngOnInit()
    {
@@ -82,6 +83,7 @@ currentCourse;
     .subscribe((d)=>{
       this.courses=d;
       console.log(this.courses);
+
       this.currentCourse=d;
       console.log(this.currentCourse);
       this.editForm = true;
@@ -90,8 +92,8 @@ currentCourse;
   
   updateCourseDetails(id){
     console.log(id);
-    this.http.put("https://api.mlab.com/api/1/databases/enquiry_info/collections/courses/"+this.Apikey+
-    "&q={_id:{$oid:'"+id+"'}}",
+    this.http.put("https://api.mlab.com/api/1/databases/enquiry_info/collections/courses/"
+    +this.Apikey+"&q={_id:{$oid:'"+id+"'}}",
     {courseName:this.currentCourse.courseName,courseDuration:this.currentCourse.courseDuration,courseFees:this.currentCourse.courseFees})
     .subscribe((d)=>{
       console.log(d);

@@ -9,6 +9,7 @@ import { ProgramsComponent } from './programs/programs.component';
 import { BatchesComponent } from './batches/batches.component';
 import { LeadsComponent } from './leads/leads.component';
 import { AddStudentsToNewBatchComponent } from './add-students-to-new-batch/add-students-to-new-batch.component';
+import { PracticalTestComponent } from './practical-test/practical-test.component';
 
 const routes: Routes = [
   {path:'getDetails', component: GetDetailsComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:"batches", component:BatchesComponent},
   {path:"leads", component:LeadsComponent},
   {path: "addstudenttonewbatch", component:AddStudentsToNewBatchComponent},
+  {path:"practicalTest",component:PracticalTestComponent}
 ];
 
 @NgModule({
@@ -28,4 +30,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [GetDetailsComponent,AddStudentsToNewBatchComponent, LeadsComponent, BatchesComponent, ShowDetailsComponent, ProgramsComponent, AboutusComponent, EditCourseComponent]
+export const routingComponents = [GetDetailsComponent,AddStudentsToNewBatchComponent, LeadsComponent, BatchesComponent, ShowDetailsComponent, ProgramsComponent, AboutusComponent, EditCourseComponent,PracticalTestComponent]
