@@ -23,6 +23,9 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { AddStudentsToNewBatchComponent } from './add-students-to-new-batch/add-students-to-new-batch.component';
 import { ShowStudentsComponent } from './show-students/show-students.component';
 import { PracticalTestComponent } from './practical-test/practical-test.component';
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { ShowQuestionsComponent } from './show-questions/show-questions.component';
+import { TestCategoryComponent } from './test-category/test-category.component';
 
 
 @NgModule({
@@ -41,6 +44,10 @@ import { PracticalTestComponent } from './practical-test/practical-test.componen
     AddStudentsToNewBatchComponent,
     ShowStudentsComponent,
     PracticalTestComponent,
+    AddQuestionsComponent,
+    ShowQuestionsComponent,
+    TestCategoryComponent
+  
    
   ],
   imports: [

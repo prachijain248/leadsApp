@@ -50,6 +50,7 @@ export class GetDetailsComponent implements OnInit {
       this.courses=d;
       console.log("this is data"+d);
   });
+  
   this.http.get("https://api.mlab.com/api/1/databases/enquiry_info/collections/programs?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo")
   .subscribe((d)=>{
     this.programs=d;
