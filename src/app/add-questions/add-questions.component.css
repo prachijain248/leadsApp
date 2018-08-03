@@ -1,0 +1,7 @@
+.quiz-container{text-align: left;}
+.margintop{margin-top:50px;}
+
+/********************************/
+/*************************************/
+.borderRed{border:1px solid red;border-radius:0px;}
+.errorcontainer{background:red;padding:5px;color:#ffffff;font-size:12px;margin-top:10px;}

@@ -1,0 +1,50 @@
+<div class="container quiz-container margintop">
+<div class="row" [formGroup]="testform">
+  <div class="col-lg-6">
+      <div class="form-group">
+          <label for="question" >Question:</label>
+          <textarea class="form-control" rows="5"  [(ngModel)]="ques"
+          formControlName="qu" [class.borderRed]="testform.controls['qu'].invalid && testform.controls['qu'].touched" ></textarea>
+          <div *ngIf="testform.controls['qu'].errors && testform.controls['qu'].touched">
+            <span class="errorcontainer" *ngIf="testform.controls['qu'].errors.required"> Question is mandatory</span>
+            <span class="errorcontainer" *ngIf="testform.controls['qu'].errors.minlength"> Minlength must be 1 character</span>
+          </div> 
+      </div>
+      <div class="form-group">
+          <label for="Option1">Option1</label>
+          <input type="text" class="form-control" [(ngModel)]="opt1"
+          formControlName="op1" [class.borderRed]="testform.controls['op1'].invalid && testform.controls['op1'].touched">
+          <div *ngIf="testform.controls['op1'].errors && testform.controls['op1'].touched">
+            <span class="errorcontainer" *ngIf="testform.controls['op1'].errors.required"> Question is mandatory</span>
+            <span class="errorcontainer" *ngIf="testform.controls['op1'].errors.minlength"> Minlength must be 1 character</span>
+          </div> 
+        </div>
+  </div>
+  <div class="col-lg-6">
+      <div class="form-group">
+          <label for="Option2">Option2</label>
+          <input type="text" class="form-control"  formControlName="op2" [class.borderRed]="testform.controls['op2'].invalid && testform.controls['op2'].touched"  [(ngModel)]="opt2">
+          <div *ngIf="testform.controls['op2'].errors && testform.controls['op2'].touched">
+            <span class="errorcontainer" *ngIf="testform.controls['op2'].errors.required"> Question is mandatory</span>
+            <span class="errorcontainer" *ngIf="testform.controls['op2'].errors.minlength"> Minlength must be 1 character</span>
+          </div> 
+      </div>
+      <div class="form-group">
+          <label for="Option3">Option3</label>
+          <input type="text" class="form-control"  formControlName="op3" [class.borderRed]="testform.controls['op3'].invalid && testform.controls['op3'].touched" [(ngModel)]="opt3">   
+          <div *ngIf="testform.controls['op3'].errors && testform.controls['op3'].touched">
+            <span class="errorcontainer" *ngIf="testform.controls['op3'].errors.required"> Question is mandatory</span>
+            <span class="errorcontainer" *ngIf="testform.controls['op3'].errors.minlength"> Minlength must be 1 character</span>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="Option4">Option4</label>
+          <input type="text" class="form-control"  formControlName="op4" [class.borderRed]="testform.controls['op4'].invalid && testform.controls['op4'].touched"  [(ngModel)]="opt4">
+          <div *ngIf="testform.controls['op4'].errors && testform.controls['op4'].touched">
+            <span class="errorcontainer" *ngIf="testform.controls['op4'].errors.required"> Question is mandatory</span>
+            <span class="errorcontainer" *ngIf="testform.controls['op4'].errors.minlength"> Minlength must be 1 character</span>
+          </div>
+        </div>
+      <button class="btn btn-primary"  [disabled] ="!testform.valid" (click)="createquestion()">Submit</button>
+  </div>
+</div>
